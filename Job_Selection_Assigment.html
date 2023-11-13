@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            justify-content: center;
+            display: flex;
+            align-items: center;
+        }
+        h1{
+            color: purple;
+        }
+       
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div >
+      
+        <h1>Select Skills</h1>
+        
+        <input type="checkbox" value="java" name="ss">Java <br>
+        <input type="checkbox" value="Python" name="ss">Python <br>
+        <input type="checkbox" value="wed-technology" name="ss">wed-technology<br>
+        <input type="checkbox" value="sql" name="ss">sql <br>
+        <input type="checkbox" value="c" name="ss">c <br>
+        <input type="checkbox" value="c++" name="ss">c++ <br>
+        <input type="checkbox" value="reactjs" name="ss">reactjs <br>
+        <p id="empty"></p>
+        <button onclick="abc()" >submit</button>
+
+        <script>
+            function abc()
+            {
+                let p=document.getElementById("empty")
+                let checkboxes = document.getElementsByName("ss");
+                let selectedSkills = [];
+
+                for (const checkbox of checkboxes) {
+                    if (checkbox.checked) {
+                        selectedSkills.push(checkbox.value);
+                    }
+                }
+
+                console.log("Selected Skills:", selectedSkills);
+
+                if(selectedSkills.length==0)
+                {
+                    console.log("please select any one")
+                    p.innerHTML="please select any one job"
+                }
+                else if(selectedSkills.length<2)
+                {
+                    console.log("not eligible")
+                    p.innerHTML="not eligible"
+                }
+                else if(selectedSkills.length>=2 && selectedSkills.length<4)
+                {
+                    console.log("eligible for 1 job")
+                    p.innerHTML="eligible for 1 job"
+
+                }
+                else if(selectedSkills.length>=4 && selectedSkills.length<6 )
+                {
+                    console.log("eligible for  2 job")
+                    p.innerHTML="eligible for  2 job"
+                }
+                else if(selectedSkills.length>=6)
+                {
+                    console.log("eligible for all job")
+                    p.innerHTML="eligible for all job"
+                }
+
+            }
+        </script>
+    </div>
+</body>
+</html>
